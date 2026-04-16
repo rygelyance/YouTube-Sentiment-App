@@ -6,11 +6,21 @@ from pydantic import BaseModel
 from transformers import pipeline, AutoModelForSequenceClassification, AutoTokenizer
 import torch
 import numpy as np
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], # In production, you'd limit this to your domain
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # Replace with your actual API key for the YouTube Data API!
-YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY", 'YOUR_API_KEY_HERE')
+YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
 youtube = build("youtube", "v3", developerKey=YOUTUBE_API_KEY)
 
 class AnalysisRequest(BaseModel):

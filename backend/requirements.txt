@@ -1,0 +1,19 @@
+# Web Framework & Server
+fastapi
+uvicorn
+
+# YouTube Data Integration
+google-api-python-client
+
+# Data Validation & Env Management
+pydantic
+python-dotenv
+
+# Machine Learning Engine
+# Note: torch is a large download (~700MB+), so the build will take a bit.
+torch
+transformers
+scipy
+
+# General Utilities
+requests
