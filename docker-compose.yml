@@ -10,9 +10,9 @@ services:
     # Avoid syncing the model_cache to keep the host machine clean
     command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 
-  # frontend:
-  #   build: ./frontend
-  #   ports:
-  #     - "3000:3000"
-  #   depends_on:
-  #     - backend
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
